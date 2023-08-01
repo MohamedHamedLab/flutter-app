@@ -1,0 +1,14 @@
+void main(){
+ 
+  print(SumN(4,9));
+  printHi('saleh');
+  
+}
+
+int SumN(int a, int b) {
+  return a + b;
+}
+
+void printHi(String name) {
+  print("Hello, name");
+}
