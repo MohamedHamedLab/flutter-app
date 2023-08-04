@@ -1,0 +1,9 @@
+void main() {
+  {
+  int sum(int X,int Y) {
+return X+Y ;
+}
+int result = sum(10,10);
+    print(result);
+  }
+}
