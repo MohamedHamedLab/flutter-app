@@ -1,0 +1,11 @@
+void main() {
+  {
+   Void greet(String name){
+     print("Hello $name How Are You");
+   }
+   String Name ="Abdo";
+    greet(Name);
+   }
+
+}
+}
