@@ -1,0 +1,32 @@
+void main() {
+  {}
+  int age = 18;
+  double height =  175;
+  String name = "Abdelkreem";
+  bool isMarried = false;
+  print(" Name = $name ");
+  print(" Age = $age ");
+  print(" Height = $height ");
+  print(" Married = $isMarried ");
+  int num1 = 90;
+  int num2 = 10;
+  int sum = num1 + num2;
+  int difference  = num1 - num2;
+  int product = num1 * num2;
+  double quotient = num1 / num2;
+  
+  print(" num1 + num2 = $sum ");
+    
+  print(" num1 - num2 = $difference ");
+    
+  print(" num1 * num2 = $product ");
+    
+  print(" num1 / num2 = $quotient ");
+  int number = 10;
+  if (number % 2 == 0) {
+    print("$number is even ");
+  } else {
+    print("$number is odd ");
+  }
+ 
+  }
