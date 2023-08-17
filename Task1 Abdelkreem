@@ -1,0 +1,11 @@
+void main() {
+  {}
+  int age = 18;
+  double height =  175;
+  String name = "Abdelkreem";
+  bool isMarried = false;
+  print(" Name = $name ");
+  print(" Age = $age ");
+  print(" Height = $height ");
+  print(" isMarried = $isMarried ");
+  }
