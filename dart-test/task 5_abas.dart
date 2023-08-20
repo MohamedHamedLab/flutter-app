@@ -1,17 +1,12 @@
 void main() {
   {
-
-print("-------------------------------------------------5-----------------------------------------------");
-  
-    
-    void greet(String name2) {
-      
-  print(" Hello $name2 How are you ");
-}
-    
-    String theName = "abas";
-    greet(theName);
-    
-   }
-    
+    print(
+        "-------------------------------------------------5-----------------------------------------------");
+    String userName = "abas";
+    greet(userName);
   }
+}
+
+void greet(String name) {
+  print(" Hello $name How are you ");
+}

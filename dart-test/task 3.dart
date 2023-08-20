@@ -1,4 +1,5 @@
-   int number = 14;
+void main() {
+  int number = 14;
   if (number % 2 == 0) {
     print("$number is even.");
   } else {
@@ -7,3 +8,5 @@
 
   for (int i = 1; i <= 10; i++) {
     print(i);
+  }
+}

@@ -1,6 +1,7 @@
-// Task 3: Control Flow Statements
+void main() {
+  // Task 3: Control Flow Statements
   print('Task 3: Control Flow Statements');
-   int number = 7;
+  int number = 7;
   if (number % 2 == 0) {
     print("$number is even.");
   } else {
@@ -11,3 +12,4 @@
   for (int i = 1; i <= 10; i++) {
     print(i);
   }
+}
