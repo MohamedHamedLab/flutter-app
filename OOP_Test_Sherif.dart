@@ -3,8 +3,9 @@ class Book {
   String author;
   int id;
   bool borrowed;
+  bool upcoming;
 
-  Book(this.title, this.author, this.id) : borrowed = false;
+  Book(this.title, this.author, this.id,this.upcoming) : borrowed = false ;
 
   void borrow() {
     if (!borrowed) {
@@ -45,9 +46,12 @@ class Library {
   void borrowBook(int bookId) {
     var book = books.firstWhere((book) => book.id == bookId);
     if (book != null) {
-      if (!book.borrowed) {
+      if (!book.borrowed && !book.upcoming) {
         book.borrow();
-      } else {
+      } else if(!book.borrowed && book.upcoming){
+        print("${book.title} is upcoming");
+      }
+      else {
         print("${book.title} is already borrowed");
       }
     } else {
@@ -77,16 +81,16 @@ class Library {
 void main() {
   int bookId = 2; 
   Library lib = new Library();
-  var book1 = Book("The art of not giving a f**k", "Mark", 1);
-  var book2 = Book("Living with physcopaths", "a pyhsco man", 2);
-  var book3 = Book("As a Man Thinketh ", "james allen", 3);
+  var book1 = Book("The art of not giving a f**k", "Mark", 1,false);
+  var book2 = Book("Living with physcopaths", "a pyhsco man", 2,false);
+  var book3 = Book("As a Man Thinketh ", "james allen", 3,true);
 
   lib.addBook(book1);
   lib.addBook(book2);
   lib.addBook(book3);
 
   lib.BookList();
-  lib.borrowBook(1);
+  lib.borrowBook(3);
   lib.returnBook(1);
   lib.borrowBook(2);
   lib.returnBook(2);
