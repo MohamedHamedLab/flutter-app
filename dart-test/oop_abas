@@ -1,0 +1,170 @@
+class Book {
+  String bookname;
+
+  int bookid;
+  
+  bool thebookborrowed;
+  
+  bool thebookupcoming;
+
+  Book(this.bookname,this.bookid,this.thebookupcoming) : thebookborrowed = false ;
+
+  void borrow() {
+    
+    if (!thebookborrowed) {
+      
+      thebookborrowed = true;
+      
+      print(" You borrowed a book = $bookname ");
+      
+    } else {
+      
+      print(" You are already borrowed = $bookname ");
+      
+    }
+    
+  }
+
+  void returnBook() {
+    
+    if (thebookborrowed) {
+      
+      thebookborrowed = false;
+      
+      print(" you returned $bookname ");
+      
+    } else {
+      
+      print(" you are not returned $bookname ");
+      
+    }
+    
+  }
+  
+}
+
+class Library {
+  
+  List<Book> books = [];
+
+  void addBook(Book book) {
+    
+    books.add(book);
+    
+  }
+
+  void BookList() {
+    
+    int i = 0;
+    
+    print("- Books List is -");
+    
+    for (var book in books) {
+      
+      i++;
+      
+      print("$i-  ${book.bookname}");
+      
+    }
+    
+  }
+
+  void borrowBook(int bookId) {
+    
+    var book = books.firstWhere((book) => book.bookid == bookId);
+    
+    if (book != null) {
+      
+      if (!book.thebookborrowed && !book.thebookupcoming) {
+        
+        book.borrow();
+        
+      } else if(!book.thebookborrowed && book.thebookupcoming){
+        
+        print("${book.bookname} is upcoming");
+        
+      } else {
+        
+        print(" $book.bookname Sorry is already borrowed ");
+        
+      }
+      
+    } else {
+      
+      print(" The book is not here ");
+      
+    }
+    
+  }
+
+  void returnBook(int bookId) {
+    
+    var book = books.firstWhere((book) => book.bookid == bookId);
+    
+    if (book == null) {
+      
+      if (book.thebookborrowed) {
+        
+        book.returnBook();
+        
+      } else {
+        
+        print(" ${book.bookname} is not borrowed ");
+        
+      }
+      
+    } else {
+      
+      print(" Book not found ");
+      
+    }
+    
+  }
+
+  bool isBookAvailable(int bookId) {
+    
+    var book = books.firstWhere((book) => book.bookid == bookId);
+    
+    return book == null && !book.thebookborrowed;
+    
+  }
+  
+}
+
+void main() {
+  
+  int bookId = 2; 
+  
+  Library lib = new Library();
+  
+  var book1 = Book( " Deep work ", 1 ,false );
+  
+  var book2 = Book( " Rich dad and poor dad " , 2 ,false );
+
+  lib.addBook(book1);
+  
+  lib.addBook(book2);
+  
+
+
+  lib.BookList();
+  
+  lib.returnBook(1);
+  
+  lib.borrowBook(2);
+  
+  lib.returnBook(2);
+
+  var available = lib.isBookAvailable(bookId);
+  
+  if (available) {
+    
+    print(" book number $bookId is available " );
+    
+  } else {
+    
+    print(" book number $bookId is not available");
+    
+  }
+  
+}
