@@ -78,13 +78,15 @@ class Library {
   }
 }
 
-void main() {
+void main () {
   int bookId = 2; 
   Library lib = new Library();
+  
   var book1 = Book("The art of not giving a f**k", "Mark", 1,false);
   var book2 = Book("Living with physcopaths", "a pyhsco man", 2,false);
   var book3 = Book("As a Man Thinketh ", "james allen", 3,true);
 
+  
   lib.addBook(book1);
   lib.addBook(book2);
   lib.addBook(book3);
@@ -95,10 +97,13 @@ void main() {
   lib.borrowBook(2);
   lib.returnBook(2);
 
-  var available = lib.isBookAvailable(bookId);
-  if (available) {
-    print("Book with ID $bookId is available");
-  } else {
-    print("Book with ID $bookId is not available");
-  }
+ var book = lib.books.firstWhere((book) => book.id == bookId);
+if (!book.borrowed && !book.upcoming){
+  print("Book ${book.title} is available for borrowing");
+  
 }
+  else {print("Book ${book.title} is not available for borrowing");}
+}
+
+
+
